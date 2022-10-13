@@ -145,8 +145,8 @@ def caculate_metric(pred_y, labels, pred_prob):
 
 
 
-train_data, train_label, train_seq = genData("/mnt/sdb/home/zx/Swift_paper/Swift_paper/data/train915.csv", 63)
-test_data, test_label, test_seq = genData("/mnt/sdb/home/zx/Swift_paper/Swift_paper/data/test915.csv", 63)
+train_data, train_label, train_seq = genData("../train915.csv", 63)
+test_data, test_label, test_seq = genData("../test915.csv", 63)
 
 print(train_data.shape, train_label.shape)
 print(test_data.shape,test_label.shape)
@@ -169,7 +169,7 @@ test_dataset = MyDataSet(test_data, test_label, test_seq)
 batch_size = 128
 train_iter = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_iter = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
-seq2vec = json.load(open('/mnt/sdb/home/zx/Swift_paper/Swift_paper/bert_emb/seq2vec_CPP.emb'))
+seq2vec = json.load(open('../seq2vec_CPP.emb'))
 
 
 class newModel(nn.Module):
@@ -401,7 +401,7 @@ for num_model in range(10):
             best_acc = test_acc
 
 
-            torch.save({"best_acc": best_acc,"metric":metric1, "model": net.state_dict()}, f'/mnt/sdb/home/zx/Swift_paper/Swift_paper/draft/Siamese_on_MLCPP/{num_model}.pl')
+            torch.save({"best_acc": best_acc,"metric":metric1, "model": net.state_dict()}, f'../Siamese/{num_model}.pl')
             print(f"best_acc: {best_acc},metric:{metric1}")
 
 
