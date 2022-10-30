@@ -6,7 +6,7 @@
 
 ## Pretrain code
 
-You should download prot_bert_bfd pretrain folder before you use, then run code in pretrain.py and save the pretrain embedding.
+You should download prot_bert_bfd （https://huggingface.co/Rostlab/prot_bert_bfd） into pretrain folder before you use, then run code in pretrain.py and save the pretrain embedding.
 
 ## Run code
 
